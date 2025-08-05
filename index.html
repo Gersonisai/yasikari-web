@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yasi K'ari SRL - Servicios Legales y Comerciales</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .nav-link.active {
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+        .map-container {
+            height: 200px;
+        }
+        @media (min-width: 768px) {
+            .map-container {
+                height: 250px;
+            }
+        }
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .online-badge {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .online-badge:hover {
+            transform: scale(1.03);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .online-badge::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shine 2s infinite;
+        }
+        @keyframes shine {
+            100% {
+                left: 100%;
+            }
+        }
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 1.5s infinite;
+        }
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+        .mobile-menu {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .desktop-menu {
+                display: none;
+            }
+            .mobile-menu {
+                display: block;
+            }
+            .mobile-menu-btn {
+                background: none;
+                border: none;
+                color: white;
+                font-size: 24px;
+                cursor: pointer;
+            }
+            .mobile-menu-items {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #1d4ed8;
+                z-index: 1000;
+                padding: 10px 0;
+            }
+            .mobile-menu-items.active {
+                display: block;
+            }
+            .mobile-menu-items li {
+                padding: 10px 20px;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-50">
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://api.whatsapp.com/send?phone=59167358769" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Navbar Responsive -->
+    <nav class="bg-blue-600 text-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <h1 class="text-xl font-bold tracking-wide">Yasi K'ari SRL</h1>
+            
+            <!-- Menú para escritorio -->
+            <ul class="desktop-menu flex space-x-4 md:space-x-6">
+                <li>
+                    <button data-tab="inicio" class="nav-link capitalize hover:text-yellow-200 transition-colors duration-300 active">Inicio</button>
+                </li>
+                <li>
+                    <button data-tab="quienes-somos" class="nav-link capitalize hover:text-yellow-200 transition-colors duration-300">Quiénes Somos</button>
+                </li>
+                <li>
+                    <button data-tab="servicios" class="nav-link capitalize hover:text-yellow-200 transition-colors duration-300">Servicios</button>
+                </li>
+                <li>
+                    <button data-tab="tarifas" class="nav-link capitalize hover:text-yellow-200 transition-colors duration-300">Tarifas</button>
+                </li>
+                <li>
+                    <button data-tab="contacto" class="nav-link capitalize hover:text-yellow-200 transition-colors duration-300">Contacto</button>
+                </li>
+            </ul>
+            
+            <!-- Menú para móviles -->
+            <div class="mobile-menu">
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="mobile-menu-items">
+                    <li>
+                        <button data-tab="inicio" class="nav-link capitalize w-full text-left py-2 px-4 hover:bg-blue-700">Inicio</button>
+                    </li>
+                    <li>
+                        <button data-tab="quienes-somos" class="nav-link capitalize w-full text-left py-2 px-4 hover:bg-blue-700">Quiénes Somos</button>
+                    </li>
+                    <li>
+                        <button data-tab="servicios" class="nav-link capitalize w-full text-left py-2 px-4 hover:bg-blue-700">Servicios</button>
+                    </li>
+                    <li>
+                        <button data-tab="tarifas" class="nav-link capitalize w-full text-left py-2 px-4 hover:bg-blue-700">Tarifas</button>
+                    </li>
+                    <li>
+                        <button data-tab="contacto" class="nav-link capitalize w-full text-left py-2 px-4 hover:bg-blue-700">Contacto</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Secciones -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Inicio -->
+        <section id="inicio" class="tab-content active animate-fadeIn">
+            <div class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white p-6 md:p-8 rounded-lg shadow-xl mb-8 transform hover:scale-105 transition-transform duration-300">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">Bienvenidos a Yasi K'ari SRL</h2>
+                <p class="text-base md:text-lg">
+                    Somos una empresa dedicada a la inversión, desarrollo y prestación de servicios integrales, orientada al crecimiento sostenible y profesional.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 md:mb-12">
+                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg border-l-4 border-blue-500">
+                    <h3 class="text-lg md:text-xl font-semibold mb-2 flex items-center">
+                        <i class="fas fa-balance-scale mr-2 text-blue-500"></i> Servicios Legales
+                    </h3>
+                    <p class="text-sm md:text-base">Ofrecemos servicios legales integrales en Derecho Penal, Civil, Familiar y Laboral con profesionales altamente capacitados.</p>
+                </div>
+                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg border-l-4 border-green-500">
+                    <h3 class="text-lg md:text-xl font-semibold mb-2 flex items-center">
+                        <i class="fas fa-store mr-2 text-green-500"></i> Actividades Comerciales
+                    </h3>
+                    <p class="text-sm md:text-base">Contamos con establecimientos comerciales especializados en farmacia, ferretería y licorería con productos de calidad.</p>
+                </div>
+                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg border-l-4 border-purple-500">
+                    <h3 class="text-lg md:text-xl font-semibold mb-2 flex items-center">
+                        <i class="fas fa-project-diagram mr-2 text-purple-500"></i> Proyectos Especiales
+                    </h3>
+                    <p class="text-sm md:text-base">Desarrollamos proyectos en agroindustria y construcción con enfoque en sostenibilidad y rentabilidad.</p>
+                </div>
+            </div>
+            
+            <div class="bg-white p-4 md:p-6 rounded-lg shadow-md">
+                <h3 class="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-blue-600">Nuestro Compromiso</h3>
+                <p class="mb-3 text-sm md:text-base">En Yasi K'ari SRL nos comprometemos a brindar soluciones integrales con profesionalismo, ética y responsabilidad social.</p>
+                <p class="text-sm md:text-base">Nuestra misión es contribuir al desarrollo económico de la región del Beni mediante inversiones estratégicas y servicios de calidad.</p>
+            </div>
+        </section>
+
+        <!-- Quiénes Somos -->
+        <section id="quienes-somos" class="tab-content animate-fadeIn">
+            <h2 class="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-blue-700">Quiénes Somos</h2>
+            <div class="bg-white p-4 md:p-6 rounded-lg shadow-md mb-6 md:mb-8">
+                <div class="grid grid-cols-1 gap-4 md:gap-6">
+                    <div>
+                        <h3 class="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-blue-600">Información Corporativa</h3>
+                        <ul class="space-y-2 md:space-y-3">
+                            <li class="flex">
+                                <i class="fas fa-building mr-2 md:mr-3 text-blue-500 mt-1"></i>
+                                <div class="text-sm md:text-base">
+                                    <strong>Denominación:</strong> Yasi K'ari SRL
+                                </div>
+                            </li>
+                            <li class="flex">
+                                <i class="fas fa-map-marker-alt mr-2 md:mr-3 text-blue-500 mt-1"></i>
+                                <div class="text-sm md:text-base">
+                                    <strong>Domicilio:</strong> Trinidad, Departamento del Beni, Bolivia
+                                </div>
+                            </li>
+                            <li class="flex">
+                                <i class="fas fa-bullseye mr-2 md:mr-3 text-blue-500 mt-1"></i>
+                                <div class="text-sm md:text-base">
+                                    <strong>Objeto Principal:</strong> Inversión, adquisición, tenencia, administración y gestión de cuotas de capital o acciones en otras sociedades.
+                                </div>
+                            </li>
+                            <li class="flex">
+                                <i class="fas fa-user-tie mr-2 md:mr-3 text-blue-500 mt-1"></i>
+                                <div class="text-sm md:text-base">
+                                    <strong>Representante Legal:</strong> Gerson Isai Machua Oniava
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-6 md:p-8 rounded-lg shadow-xl">
+                <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4">Nuestra Visión</h3>
+                <p class="mb-3 text-sm md:text-base">Ser líderes en inversiones estratégicas y prestación de servicios de calidad en el departamento del Beni, contribuyendo al desarrollo económico y social de la región.</p>
+                <p class="text-sm md:text-base">Promovemos prácticas empresariales responsables y sostenibles que generen valor para nuestros clientes y la comunidad.</p>
+            </div>
+        </section>
+
+        <!-- Servicios -->
+        <section id="servicios" class="tab-content animate-fadeIn">
+            <h2 class="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-blue-700">Nuestros Servicios</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-6 md:mb-8">
+                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg border-l-4 border-blue-500">
+                    <h3 class="text-lg md:text-xl font-semibold mb-2 flex items-center">
+                        <i class="fas fa-gavel mr-2 text-blue-500"></i> Servicios Legales
+                    </h3>
+                    <p class="text-sm md:text-base">Prestación de servicios legales integrales en:</p>
+                    <ul class="mt-2 md:mt-3 space-y-1 md:space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mr-2 mt-1 text-xs md:text-sm"></i>
+                            <span class="text-sm md:text-base">Derecho Penal</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mr-2 mt-1 text-xs md:text-sm"></i>
+                            <span class="text-sm md:text-base">Derecho Civil</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mr-2 mt-1 text-xs md:text-sm"></i>
+                            <span class="text-sm md:text-base">Derecho Familiar</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mr-2 mt-1 text-xs md:text-sm"></i>
+                            <span class="text-sm md:text-base">Derecho Laboral</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg border-l-4 border-green-500">
+                    <h3 class="text-lg md:text-xl font-semibold mb-2 flex items-center">
+                        <i class="fas fa-shopping-cart mr-2 text-green-500"></i> Actividades Comerciales
+                    </h3>
+                    <p class="text-sm md:text-base">Operamos establecimientos comerciales especializados:</p>
+                    <ul class="mt-2 md:mt-3 space-y-1 md:space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mr-2 mt-1 text-xs md:text-sm"></i>
+                            <span class="text-sm md:text-base">Farmacia</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mr-2 mt-1 text-xs md:text-sm"></i>
+                            <span class="text-sm md:text-base">Ferretería</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mr-2 mt-1 text-xs md:text-sm"></i>
+                            <span class="text-sm md:text-base">Licorería</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg border-l-4 border-purple-500">
+                    <h3 class="text-lg md:text-xl font-semibold mb-2 flex items-center">
+                        <i class="fas fa-industry mr-2 text-purple-500"></i> Proyectos Especiales
+                    </h3>
+                    <p class="text-sm md:text-base">Desarrollo e implementación de proyectos estratégicos:</p>
+                    <ul class="mt-2 md:mt-3 space-y-1 md:space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mr-2 mt-1 text-xs md:text-sm"></i>
+                            <span class="text-sm md:text-base">Agroindustria</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mr-2 mt-1 text-xs md:text-sm"></i>
+                            <span class="text-sm md:text-base">Construcción</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mr-2 mt-1 text-xs md:text-sm"></i>
+                            <span class="text-sm md:text-base">Inversiones estratégicas</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="bg-blue-50 p-4 md:p-6 rounded-lg shadow-md">
+                <h3 class="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-blue-600">Enfoque de Nuestros Servicios</h3>
+                <p class="mb-3 text-sm md:text-base">Combinamos experiencia profesional con conocimiento del mercado local para ofrecer soluciones adaptadas a las necesidades de nuestros clientes.</p>
+                <p class="text-sm md:text-base">Nuestro enfoque se basa en la calidad, responsabilidad y compromiso con resultados efectivos.</p>
+            </div>
+        </section>
+
+        <!-- Tarifas -->
+        <section id="tarifas" class="tab-content animate-fadeIn">
+            <h2 class="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-blue-700">Tarifas Profesionales</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-4 md:mb-6">
+                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md">
+                    <h3 class="text-base md:text-lg font-semibold mb-2 md:mb-3 text-blue-600 flex items-center">
+                        <i class="fas fa-book mr-2"></i> Derecho Constitucional
+                    </h3>
+                    <ul class="space-y-1 md:space-y-2">
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100">
+                            <span class="text-sm md:text-base">Acción de Defensa</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 7,570</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100">
+                            <span class="text-sm md:text-base">Acción de Libertad</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 8,580</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100">
+                            <span class="text-sm md:text-base">Acción de Amparo Constitucional</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 8,580</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100">
+                            <span class="text-sm md:text-base">Acción de Protección de Privacidad</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 8,580</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md">
+                    <h3 class="text-base md:text-lg font-semibold mb-2 md:mb-3 text-blue-600 flex items-center">
+                        <i class="fas fa-balance-scale mr-2"></i> Derecho Civil
+                    </h3>
+                    <ul class="space-y-1 md:space-y-2">
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100">
+                            <span class="text-sm md:text-base">Proceso Cautelar</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 3,530</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100">
+                            <span class="text-sm md:text-base">Proceso Ordinario</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 6,560</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100">
+                            <span class="text-sm md:text-base">Recurso de Apelación</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 4,040</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100">
+                            <span class="text-sm md:text-base">Ejecución de Sentencia</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 6,240</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md">
+                    <h3 class="text-base md:text-lg font-semibold mb-2 md:mb-3 text-blue-600 flex items-center">
+                        <i class="fas fa-home mr-2"></i> Derecho Familiar
+                    </h3>
+                    <ul class="space-y-1 md:space-y-2">
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100">
+                            <span class="text-sm md:text-base">Divorcio</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 6,560</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100">
+                            <span class="text-sm md:text-base">Asistencia Familiar</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 1,510</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100">
+                            <span class="text-sm md:text-base">Adopción Nacional</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 4,040</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100">
+                            <span class="text-sm md:text-base">Adopción Internacional</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 9,590</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="bg-yellow-50 p-4 md:p-6 rounded-lg shadow-md border-l-4 border-yellow-400">
+                <p class="text-xs md:text-sm text-gray-700 italic mb-2 md:mb-3">
+                    * Precios basados en el Arancel Mínimo de Honorarios Profesionales de la Abogacía para el Departamento del Beni.
+                </p>
+                <p class="text-xs md:text-sm text-gray-700">
+                    <strong>Nota:</strong> Las tarifas pueden variar según la complejidad del caso. Contáctenos para una cotización personalizada.
+                </p>
+            </div>
+        </section>
+
+        <!-- Contacto -->
+        <section id="contacto" class="tab-content animate-fadeIn">
+            <h2 class="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-blue-700">Información de Contacto</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                <div>
+                    <div class="bg-white p-4 md:p-6 rounded-lg shadow-md mb-4 md:mb-6">
+                        <h3 class="text-base md:text-lg font-semibold mb-2 md:mb-3 text-blue-600">Datos Generales</h3>
+                        <ul class="space-y-2 md:space-y-3">
+                            <li class="flex">
+                                <i class="fas fa-building mr-2 md:mr-3 text-blue-500 mt-1"></i>
+                                <div class="text-sm md:text-base">
+                                    <strong>Razón Social:</strong> Yasi K'ari SRL
+                                </div>
+                            </li>
+                            <li class="flex">
+                                <i class="fas fa-file-contract mr-2 md:mr-3 text-blue-500 mt-1"></i>
+                                <div class="text-sm md:text-base">
+                                    <strong>Tipo:</strong> Sociedad de Responsabilidad Limitada (SRL)
+                                </div>
+                            </li>
+                            <li class="flex">
+                                <i class="fas fa-user-tie mr-2 md:mr-3 text-blue-500 mt-1"></i>
+                                <div class="text-sm md:text-base">
+                                    <strong>Representante Legal:</strong> Gerson Isai Machua Oniava
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white p-4 md:p-6 rounded-lg shadow-md mb-4 md:mb-6">
+                        <h3 class="text-base md:text-lg font-semibold mb-2 md:mb-3 text-blue-600">Contacto Directo</h3>
+                        <ul class="space-y-2 md:space-y-3">
+                            <li class="flex">
+                                <i class="fas fa-phone-alt mr-2 md:mr-3 text-blue-500 mt-1"></i>
+                                <div class="text-sm md:text-base">
+                                    <strong>Teléfono:</strong> +591 67358769
+                                </div>
+                            </li>
+                            <li class="flex">
+                                <i class="fas fa-envelope mr-2 md:mr-3 text-blue-500 mt-1"></i>
+                                <div class="text-sm md:text-base">
+                                    <strong>Email:</strong> 
+                                    <a href="mailto:lexusyasi@gmail.com" class="text-blue-500 hover:underline ml-1">lexusyasi@gmail.com</a>
+                                </div>
+                            </li>
+                            <li class="flex">
+                                <i class="fas fa-globe mr-2 md:mr-3 text-blue-500 mt-1"></i>
+                                <div class="text-sm md:text-base">
+                                    <strong>Sitio Web:</strong> 
+                                    <a href="https://sites.google.com/view/yasikari/p%C3%A1gina-principal" target="_blank" class="text-blue-500 hover:underline ml-1">Visitar</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white p-4 md:p-6 rounded-lg shadow-md">
+                        <h3 class="text-base md:text-lg font-semibold mb-2 md:mb-3 text-blue-600">Redes Sociales</h3>
+                        <div class="flex space-x-3 md:space-x-4">
+                            <a href="https://api.whatsapp.com/send?phone=59167358769" target="_blank" class="flex items-center justify-center bg-green-500 hover:bg-green-600 text-white w-10 h-10 md:w-12 md:h-12 rounded-full">
+                                <i class="fab fa-whatsapp md:text-xl"></i>
+                            </a>
+                            <a href="https://www.facebook.com/profile.php?id=61571776760855&mibextid=ZbWKwL" target="_blank" class="flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white w-10 h-10 md:w-12 md:h-12 rounded-full">
+                                <i class="fab fa-facebook-f md:text-xl"></i>
+                            </a>
+                            <a href="https://www.instagram.com/yasikarilex/" target="_blank" class="flex items-center justify-center bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 hover:opacity-90 text-white w-10 h-10 md:w-12 md:h-12 rounded-full">
+                                <i class="fab fa-instagram md:text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="bg-white p-4 md:p-6 rounded-lg shadow-md mb-4 md:mb-6">
+                        <h3 class="text-base md:text-lg font-semibold mb-2 md:mb-3 text-blue-600">Direcciones</h3>
+                        
+                        <div class="mb-4 md:mb-6">
+                            <h4 class="font-medium text-blue-700 mb-1 md:mb-2 flex items-center">
+                                <i class="fas fa-map-marker-alt mr-2 text-red-500"></i> Oficina Principal
+                            </h4>
+                            <p class="text-xs md:text-sm text-gray-600 mb-2 md:mb-3">Calle Sucre esq. Av. José Ballivián, Trinidad - Beni</p>
+                            <div class="map-container w-full overflow-hidden rounded shadow">
+                                <iframe 
+                                    src="https://maps.app.goo.gl/1hCZ6PmkUJDPSQ4W9"
+                                    width="100%"
+                                    height="100%"
+                                    style="border:0"
+                                    allowfullscreen=""
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"
+                                    title="Mapa Oficina Principal"
+                                ></iframe>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-medium text-blue-700 mb-1 md:mb-2 flex items-center">
+                                <i class="fas fa-map-marker-alt mr-2 text-red-500"></i> Oficina Adicional
+                            </h4>
+                            <p class="text-xs md:text-sm text-gray-600 mb-2 md:mb-3">Av. Mamoré #234, Trinidad - Beni</p>
+                            <div class="map-container w-full overflow-hidden rounded shadow">
+                                <iframe 
+                                    src="https://maps.app.goo.gl/ddgNoHjVcCXBpFbA8"
+                                    width="100%"
+                                    height="100%"
+                                    style="border:0"
+                                    allowfullscreen=""
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"
+                                    title="Mapa Oficina Adicional"
+                                ></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-4 md:p-6 rounded-lg shadow-md">
+                        <h3 class="text-base md:text-lg font-semibold mb-2 md:mb-3 text-blue-600">Horario de Atención</h3>
+                        <ul class="space-y-1 md:space-y-2 mb-3 md:mb-4">
+                            <li class="flex justify-between">
+                                <span class="text-sm md:text-base">Lunes a Viernes</span>
+                                <span class="font-medium text-sm md:text-base">8:00 AM - 12:00 PM</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span></span>
+                                <span class="font-medium text-sm md:text-base">2:00 PM - 4:00 PM</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="text-sm md:text-base">Sábados</span>
+                                <span class="font-medium text-sm md:text-base">Cerrado</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="text-sm md:text-base">Domingos</span>
+                                <span class="font-medium text-sm md:text-base">Cerrado</span>
+                            </li>
+                        </ul>
+                        
+                        <!-- Atención Online 24/7 - Ahora redirige a WhatsApp -->
+                        <a href="https://api.whatsapp.com/send?phone=59167358769" target="_blank" class="block">
+                            <div class="online-badge mt-3 p-3 bg-gradient-to-r from-green-500 to-teal-500 rounded-lg pulse">
+                                <p class="text-white font-bold text-center text-sm md:text-base">
+                                    <i class="fab fa-whatsapp mr-1 md:mr-2"></i> Atención en línea: 
+                                    <br>24 horas del día, los 7 días de la semana
+                                    <br><span class="text-xs font-normal">(Haz clic para contactarnos por WhatsApp)</span>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white py-4 md:py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm md:text-base">&copy; <span id="current-year"></span> Yasi K'ari SRL - Todos los derechos reservados.</p>
+            <p class="mt-1 md:mt-2 text-xs md:text-sm">Desarrollado por el equipo de Yasi K'ari SRL</p>
+            <div class="mt-3 md:mt-4 flex justify-center space-x-3 md:space-x-4">
+                <a href="https://www.facebook.com/profile.php?id=61571776760855&mibextid=ZbWKwL" target="_blank" class="text-white hover:text-yellow-200">
+                    <i class="fab fa-facebook text-sm md:text-base"></i>
+                </a>
+                <a href="https://www.instagram.com/yasikarilex/" target="_blank" class="text-white hover:text-yellow-200">
+                    <i class="fab fa-instagram text-sm md:text-base"></i>
+                </a>
+                <a href="https://api.whatsapp.com/send?phone=59167358769" target="_blank" class="text-white hover:text-yellow-200">
+                    <i class="fab fa-whatsapp text-sm md:text-base"></i>
+                </a>
+                <a href="mailto:lexusyasi@gmail.com" class="text-white hover:text-yellow-200">
+                    <i class="fas fa-envelope text-sm md:text-base"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab switching functionality
+            const tabButtons = document.querySelectorAll('.nav-link');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            // Function to switch tabs
+            function switchTab(tabId) {
+                // Hide all tab contents
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Show selected tab content
+                const activeTab = document.getElementById(tabId);
+                if (activeTab) {
+                    activeTab.classList.add('active');
+                    activeTab.classList.add('animate-fadeIn');
+                    
+                    // Remove animation class after animation completes
+                    setTimeout(() => {
+                        activeTab.classList.remove('animate-fadeIn');
+                    }, 600);
+                }
+                
+                // Update active tab button
+                tabButtons.forEach(button => {
+                    button.classList.remove('active');
+                    if (button.getAttribute('data-tab') === tabId) {
+                        button.classList.add('active');
+                    }
+                });
+                
+                // Close mobile menu if open
+                document.querySelector('.mobile-menu-items').classList.remove('active');
+            }
+            
+            // Add click event to all tab buttons
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    switchTab(tabId);
+                });
+            });
+            
+            // Set current year in footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            
+            // WhatsApp redirection function
+            function redirectToWhatsApp() {
+                window.open('https://api.whatsapp.com/send?phone=59167358769', '_blank');
+            }
+            
+            // Add click event to online badge
+            const onlineBadge = document.querySelector('.online-badge');
+            if (onlineBadge) {
+                onlineBadge.addEventListener('click', redirectToWhatsApp);
+            }
+            
+            // Mobile menu toggle
+            const menuToggle = document.querySelector('.mobile-menu-btn');
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function() {
+                    const menuItems = document.querySelector('.mobile-menu-items');
+                    menuItems.classList.toggle('active');
+                });
+            }
+            
+            // Initialize with first tab active
+            switchTab('inicio');
+        });
+    </script>
+</body>
+</html>
