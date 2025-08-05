@@ -7,6 +7,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Asegura que el body no tenga desbordamiento horizontal */
+        html, body {
+            width: 100%;
+            overflow-x: hidden; /* Esto debería solucionar la línea blanca */
+        }
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -26,6 +32,17 @@
         }
         .map-container {
             height: 200px;
+            display: flex; /* Para centrar la imagen */
+            align-items: center;
+            justify-content: center;
+            background-color: #e0e0e0; /* Color de fondo para el contenedor del mapa */
+        }
+        .map-container img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px; /* Bordes redondeados para la imagen */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra para la imagen */
         }
         @media (min-width: 768px) {
             .map-container {
@@ -103,6 +120,7 @@
             background-color: #128C7E;
             transform: scale(1.1);
         }
+        /* Ajustes para el menú móvil */
         .mobile-menu {
             display: none;
         }
@@ -122,13 +140,14 @@
             }
             .mobile-menu-items {
                 display: none;
-                position: absolute;
+                position: absolute; /* Asegura que no afecte el flujo de la barra de navegación */
                 top: 100%;
                 left: 0;
                 width: 100%;
                 background: #1d4ed8;
                 z-index: 1000;
                 padding: 10px 0;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra para que se vea mejor */
             }
             .mobile-menu-items.active {
                 display: block;
@@ -136,6 +155,9 @@
             .mobile-menu-items li {
                 padding: 10px 20px;
                 border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            .mobile-menu-items li:last-child {
+                border-bottom: none; /* Elimina el borde del último elemento */
             }
         }
     </style>
@@ -493,13 +515,7 @@
                                     <a href="mailto:lexusyasi@gmail.com" class="text-blue-500 hover:underline ml-1">lexusyasi@gmail.com</a>
                                 </div>
                             </li>
-                            <li class="flex">
-                                <i class="fas fa-globe mr-2 md:mr-3 text-blue-500 mt-1"></i>
-                                <div class="text-sm md:text-base">
-                                    <strong>Sitio Web:</strong> 
-                                    <a href="https://sites.google.com/view/yasikari/p%C3%A1gina-principal" target="_blank" class="text-blue-500 hover:underline ml-1">Visitar</a>
-                                </div>
-                            </li>
+                            <!-- Se eliminó la línea de "Sitio Web: Visitar" -->
                         </ul>
                     </div>
                     
@@ -529,16 +545,11 @@
                             </h4>
                             <p class="text-xs md:text-sm text-gray-600 mb-2 md:mb-3">Calle Sucre esq. Av. José Ballivián, Trinidad - Beni</p>
                             <div class="map-container w-full overflow-hidden rounded shadow">
-                                <iframe 
-                                    src="https://maps.app.goo.gl/1hCZ6PmkUJDPSQ4W9"
-                                    width="100%"
-                                    height="100%"
-                                    style="border:0"
-                                    allowfullscreen=""
-                                    loading="lazy"
-                                    referrerpolicy="no-referrer-when-downgrade"
-                                    title="Mapa Oficina Principal"
-                                ></iframe>
+                                <!-- Reemplazado iframe con imagen clicable a Google Maps -->
+                                <a href="https://maps.app.goo.gl/1hCZ6PmkUJDPSQ4W9" target="_blank" title="Ver en Google Maps">
+                                    <img src="https://placehold.co/400x200/cccccc/333333?text=Haz+clic+para+ver+mapa" alt="Mapa de Oficina Principal">
+                                </a>
+                                <p class="text-xs text-gray-500 mt-2 text-center">Haz clic en la imagen para ver el mapa</p>
                             </div>
                         </div>
                         
@@ -548,16 +559,11 @@
                             </h4>
                             <p class="text-xs md:text-sm text-gray-600 mb-2 md:mb-3">Av. Mamoré #234, Trinidad - Beni</p>
                             <div class="map-container w-full overflow-hidden rounded shadow">
-                                <iframe 
-                                    src="https://maps.app.goo.gl/ddgNoHjVcCXBpFbA8"
-                                    width="100%"
-                                    height="100%"
-                                    style="border:0"
-                                    allowfullscreen=""
-                                    loading="lazy"
-                                    referrerpolicy="no-referrer-when-downgrade"
-                                    title="Mapa Oficina Adicional"
-                                ></iframe>
+                                <!-- Reemplazado iframe con imagen clicable a Google Maps -->
+                                <a href="https://maps.app.goo.gl/ddgNoHjVcCXBpFbA8" target="_blank" title="Ver en Google Maps">
+                                    <img src="https://placehold.co/400x200/cccccc/333333?text=Haz+clic+para+ver+mapa" alt="Mapa de Oficina Adicional">
+                                </a>
+                                <p class="text-xs text-gray-500 mt-2 text-center">Haz clic en la imagen para ver el mapa</p>
                             </div>
                         </div>
                     </div>
