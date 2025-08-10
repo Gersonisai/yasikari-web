@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yasi K'ari SRL - Servicios Legales y Comerciales</title>
+    <!-- Título y metadatos enfocados en la división legal -->
+    <title>Yasi K'ari SRL | Firma de Abogados en Bolivia</title>
+    <meta name="description" content="Servicios legales integrales en Bolivia. Yasi K'ari SRL es una firma legal especializada en derecho Penal, Civil, Familiar, Laboral, Administrativo, Constitucional y Corporativo.">
+    <!-- Carga de Tailwind CSS para un diseño moderno y responsive -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carga de Font Awesome para los iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Estilos CSS personalizados para animaciones y diseño -->
     <style>
-        /* Asegura que el body no tenga desbordamiento horizontal */
-        html, body {
-            width: 100%;
-            overflow-x: hidden; /* Esto debería solucionar la línea blanca */
-        }
-
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -29,25 +29,6 @@
         .nav-link.active {
             text-decoration: underline;
             text-underline-offset: 4px;
-        }
-        .map-container {
-            height: 200px;
-            display: flex; /* Para centrar la imagen */
-            align-items: center;
-            justify-content: center;
-            background-color: #e0e0e0; /* Color de fondo para el contenedor del mapa */
-        }
-        .map-container img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 8px; /* Bordes redondeados para la imagen */
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra para la imagen */
-        }
-        @media (min-width: 768px) {
-            .map-container {
-                height: 250px;
-            }
         }
         .service-card {
             transition: all 0.3s ease;
@@ -82,7 +63,7 @@
             }
         }
         .pulse {
-            animation: pulse 2s infinite;
+            animation: pulse 1.5s infinite;
         }
         @keyframes pulse {
             0% { transform: scale(1); }
@@ -115,16 +96,6 @@
                 bottom: 15px;
                 right: 15px;
             }
-        }
-        .whatsapp-float:hover {
-            background-color: #128C7E;
-            transform: scale(1.1);
-        }
-        /* Ajustes para el menú móvil */
-        .mobile-menu {
-            display: none;
-        }
-        @media (max-width: 768px) {
             .desktop-menu {
                 display: none;
             }
@@ -140,14 +111,13 @@
             }
             .mobile-menu-items {
                 display: none;
-                position: absolute; /* Asegura que no afecte el flujo de la barra de navegación */
+                position: absolute;
                 top: 100%;
                 left: 0;
                 width: 100%;
                 background: #1d4ed8;
                 z-index: 1000;
                 padding: 10px 0;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra para que se vea mejor */
             }
             .mobile-menu-items.active {
                 display: block;
@@ -156,114 +126,116 @@
                 padding: 10px 20px;
                 border-bottom: 1px solid rgba(255,255,255,0.1);
             }
-            .mobile-menu-items li:last-child {
-                border-bottom: none; /* Elimina el borde del último elemento */
+        }
+        .map-container {
+            height: 200px;
+        }
+        @media (min-width: 768px) {
+            .map-container {
+                height: 250px;
             }
+        }
+        .mobile-menu {
+            display: none;
         }
     </style>
 </head>
 <body class="min-h-screen bg-gray-50">
-    <!-- Botón flotante de WhatsApp -->
+    <!-- Botón flotante de WhatsApp para una comunicación fácil -->
     <a href="https://api.whatsapp.com/send?phone=59167358769" target="_blank" class="whatsapp-float">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Navbar Responsive -->
+    <!-- Barra de navegación con menú responsivo para escritorio y móvil -->
     <nav class="bg-blue-600 text-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <h1 class="text-xl font-bold tracking-wide">Yasi K'ari SRL</h1>
             
-            <!-- Menú para escritorio -->
+            <!-- Menú de navegación para escritorio -->
             <ul class="desktop-menu flex space-x-4 md:space-x-6">
-                <li>
-                    <button data-tab="inicio" class="nav-link capitalize hover:text-yellow-200 transition-colors duration-300 active">Inicio</button>
-                </li>
-                <li>
-                    <button data-tab="quienes-somos" class="nav-link capitalize hover:text-yellow-200 transition-colors duration-300">Quiénes Somos</button>
-                </li>
-                <li>
-                    <button data-tab="servicios" class="nav-link capitalize hover:text-yellow-200 transition-colors duration-300">Servicios</button>
-                </li>
-                <li>
-                    <button data-tab="tarifas" class="nav-link capitalize hover:text-yellow-200 transition-colors duration-300">Tarifas</button>
-                </li>
-                <li>
-                    <button data-tab="contacto" class="nav-link capitalize hover:text-yellow-200 transition-colors duration-300">Contacto</button>
-                </li>
+                <li><button data-tab="inicio" class="nav-link capitalize hover:text-yellow-200 transition-colors duration-300 active">Inicio</button></li>
+                <li><button data-tab="servicios" class="nav-link capitalize hover:text-yellow-200 transition-colors duration-300">Servicios</button></li>
+                <li><button data-tab="tarifas" class="nav-link capitalize hover:text-yellow-200 transition-colors duration-300">Tarifas</button></li>
+                <li><button data-tab="quienes-somos" class="nav-link capitalize hover:text-yellow-200 transition-colors duration-300">Quiénes Somos</button></li>
+                <li><button data-tab="equipo" class="nav-link capitalize hover:text-yellow-200 transition-colors duration-300">Equipo de Trabajo</button></li>
+                <li><button data-tab="contacto" class="nav-link capitalize hover:text-yellow-200 transition-colors duration-300">Contacto</button></li>
+                <li><button data-tab="proximamente" class="nav-link capitalize hover:text-yellow-200 transition-colors duration-300">Otros Rubros</button></li>
             </ul>
             
-            <!-- Menú para móviles -->
+            <!-- Botón y menú para móvil -->
             <div class="mobile-menu">
                 <button class="mobile-menu-btn">
                     <i class="fas fa-bars"></i>
                 </button>
                 <ul class="mobile-menu-items">
-                    <li>
-                        <button data-tab="inicio" class="nav-link capitalize w-full text-left py-2 px-4 hover:bg-blue-700">Inicio</button>
-                    </li>
-                    <li>
-                        <button data-tab="quienes-somos" class="nav-link capitalize w-full text-left py-2 px-4 hover:bg-blue-700">Quiénes Somos</button>
-                    </li>
-                    <li>
-                        <button data-tab="servicios" class="nav-link capitalize w-full text-left py-2 px-4 hover:bg-blue-700">Servicios</button>
-                    </li>
-                    <li>
-                        <button data-tab="tarifas" class="nav-link capitalize w-full text-left py-2 px-4 hover:bg-blue-700">Tarifas</button>
-                    </li>
-                    <li>
-                        <button data-tab="contacto" class="nav-link capitalize w-full text-left py-2 px-4 hover:bg-blue-700">Contacto</button>
-                    </li>
+                    <li><button data-tab="inicio" class="nav-link capitalize w-full text-left py-2 px-4 hover:bg-blue-700">Inicio</button></li>
+                    <li><button data-tab="servicios" class="nav-link capitalize w-full text-left py-2 px-4 hover:bg-blue-700">Servicios</button></li>
+                    <li><button data-tab="tarifas" class="nav-link capitalize w-full text-left py-2 px-4 hover:bg-blue-700">Tarifas</button></li>
+                    <li><button data-tab="quienes-somos" class="nav-link capitalize w-full text-left py-2 px-4 hover:bg-blue-700">Quiénes Somos</button></li>
+                    <li><button data-tab="equipo" class="nav-link capitalize w-full text-left py-2 px-4 hover:bg-blue-700">Equipo de Trabajo</button></li>
+                    <li><button data-tab="contacto" class="nav-link capitalize w-full text-left py-2 px-4 hover:bg-blue-700">Contacto</button></li>
+                    <li><button data-tab="proximamente" class="nav-link capitalize w-full text-left py-2 px-4 hover:bg-blue-700">Otros Rubros</button></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Secciones -->
+    <!-- Contenedor principal de secciones -->
     <main class="container mx-auto px-4 py-8">
-        <!-- Inicio -->
+        <!-- Inicio: Resumen de la firma legal -->
         <section id="inicio" class="tab-content active animate-fadeIn">
             <div class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white p-6 md:p-8 rounded-lg shadow-xl mb-8 transform hover:scale-105 transition-transform duration-300">
                 <h2 class="text-2xl md:text-3xl font-bold mb-4">Bienvenidos a Yasi K'ari SRL</h2>
                 <p class="text-base md:text-lg">
-                    Somos una empresa dedicada a la inversión, desarrollo y prestación de servicios integrales, orientada al crecimiento sostenible y profesional.
+                    Somos una firma legal dedicada a la prestación de servicios jurídicos integrales, con un enfoque en la ética, la profesionalidad y la búsqueda de resultados efectivos para nuestros clientes.
                 </p>
             </div>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 md:mb-12">
+                <!-- Se actualiza el 'data-tab' para el enlace de "Asesoría Profesional" para que lleve a la sección de "Servicios" -->
                 <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg border-l-4 border-blue-500">
-                    <h3 class="text-lg md:text-xl font-semibold mb-2 flex items-center">
-                        <i class="fas fa-balance-scale mr-2 text-blue-500"></i> Servicios Legales
-                    </h3>
-                    <p class="text-sm md:text-base">Ofrecemos servicios legales integrales en Derecho Penal, Civil, Familiar y Laboral con profesionales altamente capacitados.</p>
+                    <button data-tab="servicios" class="w-full text-left">
+                        <h3 class="text-lg md:text-xl font-semibold mb-2 flex items-center">
+                            <i class="fas fa-balance-scale mr-2 text-blue-500"></i> Asesoría Profesional
+                        </h3>
+                        <p class="text-sm md:text-base">Brindamos asesoría y representación legal en diversas áreas del derecho boliviano.</p>
+                    </button>
                 </div>
-                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg border-l-4 border-green-500">
-                    <h3 class="text-lg md:text-xl font-semibold mb-2 flex items-center">
-                        <i class="fas fa-store mr-2 text-green-500"></i> Actividades Comerciales
-                    </h3>
-                    <p class="text-sm md:text-base">Contamos con establecimientos comerciales especializados en farmacia, ferretería y licorería con productos de calidad.</p>
+                <!-- Se actualiza el 'data-tab' para el enlace de "Soluciones Integrales" para que lleve a la sección de "Tarifas" -->
+                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg border-l-4 border-yellow-500">
+                    <button data-tab="tarifas" class="w-full text-left">
+                        <h3 class="text-lg md:text-xl font-semibold mb-2 flex items-center">
+                            <i class="fas fa-handshake mr-2 text-yellow-500"></i> Soluciones Integrales
+                        </h3>
+                        <p class="text-sm md:text-base">Nuestro objetivo es encontrar soluciones efectivas, minimizando conflictos y maximizando los beneficios para nuestros clientes.</p>
+                    </button>
                 </div>
-                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg border-l-4 border-purple-500">
+                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg border-l-4 border-pink-500">
                     <h3 class="text-lg md:text-xl font-semibold mb-2 flex items-center">
-                        <i class="fas fa-project-diagram mr-2 text-purple-500"></i> Proyectos Especiales
+                        <i class="fas fa-gavel mr-2 text-pink-500"></i> Compromiso y Ética
                     </h3>
-                    <p class="text-sm md:text-base">Desarrollamos proyectos en agroindustria y construcción con enfoque en sostenibilidad y rentabilidad.</p>
+                    <p class="text-sm md:text-base">Nos comprometemos con la defensa de tus derechos bajo los principios de ética, honestidad y total transparencia.</p>
                 </div>
             </div>
             
             <div class="bg-white p-4 md:p-6 rounded-lg shadow-md">
                 <h3 class="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-blue-600">Nuestro Compromiso</h3>
-                <p class="mb-3 text-sm md:text-base">En Yasi K'ari SRL nos comprometemos a brindar soluciones integrales con profesionalismo, ética y responsabilidad social.</p>
-                <p class="text-sm md:text-base">Nuestra misión es contribuir al desarrollo económico de la región del Beni mediante inversiones estratégicas y servicios de calidad.</p>
+                <p class="mb-3 text-sm md:text-base">En Yasi K'ari SRL, nos comprometemos a brindar soluciones legales con profesionalismo, ética y responsabilidad social.</p>
+                <p class="text-sm md:text-base">Nuestra misión es defender los intereses de nuestros clientes, garantizando la aplicación de la justicia y el cumplimiento de la ley.</p>
             </div>
         </section>
 
-        <!-- Quiénes Somos -->
+        <!-- Quiénes Somos: Información detallada de la firma -->
         <section id="quienes-somos" class="tab-content animate-fadeIn">
             <h2 class="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-blue-700">Quiénes Somos</h2>
             <div class="bg-white p-4 md:p-6 rounded-lg shadow-md mb-6 md:mb-8">
                 <div class="grid grid-cols-1 gap-4 md:gap-6">
+                    <!-- Se agrega el logo oficial de la firma -->
+                    <div class="flex flex-col items-center mb-6">
+                        <img src="Copia de logo oficial.jpg-43caa038-a08f-4d09-9703-cd75e50936d2" alt="Logo de Yasi K'ari SRL" class="w-48 md:w-64">
+                    </div>
                     <div>
-                        <h3 class="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-blue-600">Información Corporativa</h3>
+                        <h3 class="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-blue-600">Información de la Firma</h3>
                         <ul class="space-y-2 md:space-y-3">
                             <li class="flex">
                                 <i class="fas fa-building mr-2 md:mr-3 text-blue-500 mt-1"></i>
@@ -280,10 +252,10 @@
                             <li class="flex">
                                 <i class="fas fa-bullseye mr-2 md:mr-3 text-blue-500 mt-1"></i>
                                 <div class="text-sm md:text-base">
-                                    <strong>Objeto Principal:</strong> Inversión, adquisición, tenencia, administración y gestión de cuotas de capital o acciones en otras sociedades.
+                                    <strong>Objeto Principal:</strong> Prestación de servicios legales integrales.
                                 </div>
                             </li>
-                            <li class="flex">
+                             <li class="flex">
                                 <i class="fas fa-user-tie mr-2 md:mr-3 text-blue-500 mt-1"></i>
                                 <div class="text-sm md:text-base">
                                     <strong>Representante Legal:</strong> Gerson Isai Machua Oniava
@@ -296,164 +268,647 @@
             
             <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-6 md:p-8 rounded-lg shadow-xl">
                 <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4">Nuestra Visión</h3>
-                <p class="mb-3 text-sm md:text-base">Ser líderes en inversiones estratégicas y prestación de servicios de calidad en el departamento del Beni, contribuyendo al desarrollo económico y social de la región.</p>
-                <p class="text-sm md:text-base">Promovemos prácticas empresariales responsables y sostenibles que generen valor para nuestros clientes y la comunidad.</p>
+                <p class="mb-3 text-sm md:text-base">Ser líderes en la prestación de servicios legales de alta calidad en el departamento del Beni, contribuyendo al desarrollo de la justicia y la seguridad jurídica en la región.</p>
+                <p class="text-sm md:text-base">Promovemos prácticas legales responsables y éticas que generen valor para nuestros clientes y la comunidad.</p>
             </div>
         </section>
 
-        <!-- Servicios -->
+        <!-- Servicios: Listado detallado de las áreas de práctica -->
         <section id="servicios" class="tab-content animate-fadeIn">
-            <h2 class="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-blue-700">Nuestros Servicios</h2>
+            <h2 class="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-blue-700">Nuestros Servicios Legales</h2>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-6 md:mb-8">
                 <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg border-l-4 border-blue-500">
-                    <h3 class="text-lg md:text-xl font-semibold mb-2 flex items-center">
-                        <i class="fas fa-gavel mr-2 text-blue-500"></i> Servicios Legales
-                    </h3>
-                    <p class="text-sm md:text-base">Prestación de servicios legales integrales en:</p>
-                    <ul class="mt-2 md:mt-3 space-y-1 md:space-y-2">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mr-2 mt-1 text-xs md:text-sm"></i>
-                            <span class="text-sm md:text-base">Derecho Penal</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mr-2 mt-1 text-xs md:text-sm"></i>
-                            <span class="text-sm md:text-base">Derecho Civil</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mr-2 mt-1 text-xs md:text-sm"></i>
-                            <span class="text-sm md:text-base">Derecho Familiar</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mr-2 mt-1 text-xs md:text-sm"></i>
-                            <span class="text-sm md:text-base">Derecho Laboral</span>
-                        </li>
-                    </ul>
+                    <!-- Botón que lleva a la sección de tarifas y un tema específico -->
+                    <button data-tab="tarifas" data-tema="penal" class="w-full text-left service-link">
+                        <h3 class="text-lg md:text-xl font-semibold mb-2 flex items-center">
+                            <i class="fas fa-gavel mr-2 text-blue-500"></i> Derecho Penal
+                        </h3>
+                        <p class="text-sm md:text-base">Asesoría y defensa en procesos penales, garantizando la representación y el debido proceso.</p>
+                    </button>
                 </div>
-                
-                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg border-l-4 border-green-500">
-                    <h3 class="text-lg md:text-xl font-semibold mb-2 flex items-center">
-                        <i class="fas fa-shopping-cart mr-2 text-green-500"></i> Actividades Comerciales
-                    </h3>
-                    <p class="text-sm md:text-base">Operamos establecimientos comerciales especializados:</p>
-                    <ul class="mt-2 md:mt-3 space-y-1 md:space-y-2">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mr-2 mt-1 text-xs md:text-sm"></i>
-                            <span class="text-sm md:text-base">Farmacia</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mr-2 mt-1 text-xs md:text-sm"></i>
-                            <span class="text-sm md:text-base">Ferretería</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mr-2 mt-1 text-xs md:text-sm"></i>
-                            <span class="text-sm md:text-base">Licorería</span>
-                        </li>
-                    </ul>
+                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg border-l-4 border-blue-500">
+                    <button data-tab="tarifas" data-tema="civil" class="w-full text-left service-link">
+                        <h3 class="text-lg md:text-xl font-semibold mb-2 flex items-center">
+                            <i class="fas fa-users-cog mr-2 text-blue-500"></i> Derecho Civil
+                        </h3>
+                        <p class="text-sm md:text-base">Representación en litigios civiles, contratos, derechos de propiedad y obligaciones.</p>
+                    </button>
                 </div>
-                
-                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg border-l-4 border-purple-500">
-                    <h3 class="text-lg md:text-xl font-semibold mb-2 flex items-center">
-                        <i class="fas fa-industry mr-2 text-purple-500"></i> Proyectos Especiales
-                    </h3>
-                    <p class="text-sm md:text-base">Desarrollo e implementación de proyectos estratégicos:</p>
-                    <ul class="mt-2 md:mt-3 space-y-1 md:space-y-2">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mr-2 mt-1 text-xs md:text-sm"></i>
-                            <span class="text-sm md:text-base">Agroindustria</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mr-2 mt-1 text-xs md:text-sm"></i>
-                            <span class="text-sm md:text-base">Construcción</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-green-500 mr-2 mt-1 text-xs md:text-sm"></i>
-                            <span class="text-sm md:text-base">Inversiones estratégicas</span>
-                        </li>
-                    </ul>
+                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg border-l-4 border-blue-500">
+                    <button data-tab="tarifas" data-tema="familiar" class="w-full text-left service-link">
+                        <h3 class="text-lg md:text-xl font-semibold mb-2 flex items-center">
+                            <i class="fas fa-child mr-2 text-blue-500"></i> Derecho Familiar
+                        </h3>
+                        <p class="text-sm md:text-base">Asistencia en casos de divorcio, asistencia familiar, adopciones y otros procedimientos familiares.</p>
+                    </button>
+                </div>
+                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg border-l-4 border-blue-500">
+                    <button data-tab="tarifas" data-tema="laboral" class="w-full text-left service-link">
+                        <h3 class="text-lg md:text-xl font-semibold mb-2 flex items-center">
+                            <i class="fas fa-briefcase mr-2 text-blue-500"></i> Derecho Laboral
+                        </h3>
+                        <p class="text-sm md:text-base">Asesoría para trabajadores y empleadores en temas de contratos, despidos e indemnizaciones.</p>
+                    </button>
+                </div>
+                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg border-l-4 border-blue-500">
+                    <button data-tab="tarifas" data-tema="administrativo" class="w-full text-left service-link">
+                        <h3 class="text-lg md:text-xl font-semibold mb-2 flex items-center">
+                            <i class="fas fa-file-invoice mr-2 text-blue-500"></i> Derecho Administrativo
+                        </h3>
+                        <p class="text-sm md:text-base">Tramites y representación frente a entidades públicas. Defendemos tus derechos ante la administración pública.</p>
+                    </button>
+                </div>
+                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg border-l-4 border-blue-500">
+                    <button data-tab="tarifas" data-tema="constitucional" class="w-full text-left service-link">
+                        <h3 class="text-lg md:text-xl font-semibold mb-2 flex items-center">
+                            <i class="fas fa-scroll mr-2 text-blue-500"></i> Derecho Constitucional
+                        </h3>
+                        <p class="text-sm md:text-base">Protección de derechos fundamentales a través de acciones de defensa y amparo constitucional.</p>
+                    </button>
+                </div>
+                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg border-l-4 border-blue-500">
+                    <button data-tab="tarifas" data-tema="corporativo" class="w-full text-left service-link">
+                        <h3 class="text-lg md:text-xl font-semibold mb-2 flex items-center">
+                            <i class="fas fa-chart-line mr-2 text-blue-500"></i> Derecho Corporativo
+                        </h3>
+                        <p class="text-sm md:text-base">Asesoría en la constitución de sociedades, contratos comerciales y gobierno corporativo.</p>
+                    </button>
+                </div>
+                 <!-- Nuevo servicio: Derecho Tributario -->
+                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg border-l-4 border-blue-500">
+                    <button data-tab="tarifas" data-tema="tributario" class="w-full text-left service-link">
+                        <h3 class="text-lg md:text-xl font-semibold mb-2 flex items-center">
+                            <i class="fas fa-money-check-alt mr-2 text-blue-500"></i> Derecho Tributario
+                        </h3>
+                        <p class="text-sm md:text-base">Asesoría y defensa en procedimientos tributarios y coactivos fiscales.</p>
+                    </button>
+                </div>
+                <!-- Nuevo servicio: Derecho Agroambiental -->
+                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg border-l-4 border-blue-500">
+                    <button data-tab="tarifas" data-tema="agroambiental" class="w-full text-left service-link">
+                        <h3 class="text-lg md:text-xl font-semibold mb-2 flex items-center">
+                            <i class="fas fa-seedling mr-2 text-blue-500"></i> Derecho Agroambiental
+                        </h3>
+                        <p class="text-sm md:text-base">Trámites administrativos y procesos judiciales en materia agroambiental.</p>
+                    </button>
+                </div>
+                <!-- Nuevo servicio: Derecho Minero -->
+                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg border-l-4 border-blue-500">
+                    <button data-tab="tarifas" data-tema="minero" class="w-full text-left service-link">
+                        <h3 class="text-lg md:text-xl font-semibold mb-2 flex items-center">
+                            <i class="fas fa-gem mr-2 text-blue-500"></i> Derecho Minero
+                        </h3>
+                        <p class="text-sm md:text-base">Gestión de derechos mineros, contratos y trámites administrativos.</p>
+                    </button>
+                </div>
+                 <!-- Nuevo servicio: Tramos en general -->
+                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-lg border-l-4 border-blue-500">
+                    <button data-tab="tarifas" data-tema="general" class="w-full text-left service-link">
+                        <h3 class="text-lg md:text-xl font-semibold mb-2 flex items-center">
+                            <i class="fas fa-tasks mr-2 text-blue-500"></i> Trámites en General
+                        </h3>
+                        <p class="text-sm md:text-base">Consultas, redacción de normativa y conciliaciones.</p>
+                    </button>
                 </div>
             </div>
-            
-            <div class="bg-blue-50 p-4 md:p-6 rounded-lg shadow-md">
-                <h3 class="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-blue-600">Enfoque de Nuestros Servicios</h3>
-                <p class="mb-3 text-sm md:text-base">Combinamos experiencia profesional con conocimiento del mercado local para ofrecer soluciones adaptadas a las necesidades de nuestros clientes.</p>
-                <p class="text-sm md:text-base">Nuestro enfoque se basa en la calidad, responsabilidad y compromiso con resultados efectivos.</p>
+        </section>
+        
+        <!-- Sección de "Equipo de Trabajo" -->
+        <section id="equipo" class="tab-content animate-fadeIn">
+            <h2 class="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-blue-700">Nuestro Equipo de Trabajo</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Ejemplo de tarjeta de perfil de abogado -->
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center">
+                    <div class="w-24 h-24 rounded-full bg-gray-200 mb-4 flex items-center justify-center overflow-hidden">
+                        <!-- Placeholder para la foto del abogado. Puedes reemplazarlo con la URL de la imagen real. -->
+                        <img src="https://placehold.co/96x96/60A5FA/FFFFFF?text=Abogado" alt="Foto del Abogado" class="object-cover w-full h-full">
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800">Gerson Isai Machua Oniava</h3>
+                    <p class="text-sm text-blue-600 font-medium">Socio Fundador</p>
+                    <p class="text-xs text-gray-500 mt-2">Lic. en Derecho, Especialista en Derecho Civil, Penal, Familiar, Laboral, Administrativo, Constitucional y Corporativo.</p>
+                    <div class="mt-4 flex space-x-3 text-lg">
+                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-green-500 hover:text-green-700"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-gray-700"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <!-- Añade más tarjetas de perfiles aquí si el usuario quiere -->
             </div>
         </section>
 
-        <!-- Tarifas -->
+        <!-- Tarifas: Información de aranceles profesionales -->
         <section id="tarifas" class="tab-content animate-fadeIn">
             <h2 class="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-blue-700">Tarifas Profesionales</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-4 md:mb-6">
-                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md">
+                 <!-- Seccion de Derecho Constitucional -->
+                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md" id="tarifas-constitucional">
                     <h3 class="text-base md:text-lg font-semibold mb-2 md:mb-3 text-blue-600 flex items-center">
-                        <i class="fas fa-book mr-2"></i> Derecho Constitucional
+                        <i class="fas fa-book mr-2"></i> Materia Constitucional
                     </h3>
                     <ul class="space-y-1 md:space-y-2">
-                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100">
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Constitucional" data-servicio="Acción de Defensa">
                             <span class="text-sm md:text-base">Acción de Defensa</span>
                             <span class="font-medium text-blue-500 text-sm md:text-base">Bs 7,570</span>
                         </li>
-                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100">
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Constitucional" data-servicio="Acción de Libertad">
                             <span class="text-sm md:text-base">Acción de Libertad</span>
-                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 8,580</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 7,570</span>
                         </li>
-                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100">
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Constitucional" data-servicio="Acción de Amparo Constitucional">
                             <span class="text-sm md:text-base">Acción de Amparo Constitucional</span>
                             <span class="font-medium text-blue-500 text-sm md:text-base">Bs 8,580</span>
                         </li>
-                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100">
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Constitucional" data-servicio="Acción de Protección de Privacidad">
                             <span class="text-sm md:text-base">Acción de Protección de Privacidad</span>
                             <span class="font-medium text-blue-500 text-sm md:text-base">Bs 8,580</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Constitucional" data-servicio="Acción de Cumplimiento">
+                            <span class="text-sm md:text-base">Acción de Cumplimiento</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 5,550</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Constitucional" data-servicio="Acción Popular">
+                            <span class="text-sm md:text-base">Acción Popular</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 5,050</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Constitucional" data-servicio="Acción de Inconstitucionalidad Abstracta">
+                            <span class="text-sm md:text-base">Acción de Inconstitucionalidad Abstracta</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 9,590</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Constitucional" data-servicio="Acción de Inconstitucionalidad Concreta">
+                            <span class="text-sm md:text-base">Acción de Inconstitucionalidad Concreta</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 11,110</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Constitucional" data-servicio="Conflictos de Competencia">
+                            <span class="text-sm md:text-base">Conflictos de Competencia</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 7,070</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Constitucional" data-servicio="Recurso contra tributos, impuestos, tasas, patentes, derechos o contribuciones especiales">
+                            <span class="text-sm md:text-base">Recurso contra tributos, impuestos, tasas, patentes, derechos o contribuciones especiales</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 4,540</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Constitucional" data-servicio="Recursos contra resoluciones del Órgano Legislativo">
+                            <span class="text-sm md:text-base">Recursos contra resoluciones del Órgano Legislativo</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 8,580</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Constitucional" data-servicio="Recurso Directo de Nulidad">
+                            <span class="text-sm md:text-base">Recurso Directo de Nulidad</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 4,540</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Sección de Derecho Civil -->
+                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md" id="tarifas-civil">
+                    <h3 class="text-base md:text-lg font-semibold mb-2 md:mb-3 text-blue-600 flex items-center">
+                        <i class="fas fa-balance-scale mr-2"></i> Materia Civil
+                    </h3>
+                    <ul class="space-y-1 md:space-y-2">
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Civil" data-servicio="Proceso Cautelar">
+                            <span class="text-sm md:text-base">Proceso Cautelar</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 3,530</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Civil" data-servicio="Proceso Ordinario">
+                            <span class="text-sm md:text-base">Proceso Ordinario</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 6,560</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Civil" data-servicio="Proceso Extraordinario">
+                            <span class="text-sm md:text-base">Proceso Extraordinario</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 4,040</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Civil" data-servicio="Proceso de Estructura Monitoria">
+                            <span class="text-sm md:text-base">Proceso de Estructura Monitoria</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 4,040</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Civil" data-servicio="Procesos Concursales">
+                            <span class="text-sm md:text-base">Procesos Concursales</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 4,040</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Civil" data-servicio="Procesos Voluntarios">
+                            <span class="text-sm md:text-base">Procesos Voluntarios</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 4,040</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Civil" data-servicio="Proceso de Cooperación Judicial Internacional">
+                            <span class="text-sm md:text-base">Proceso de Cooperación Judicial Internacional</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 8,732</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Civil" data-servicio="Recurso de Reposición">
+                            <span class="text-sm md:text-base">Recurso de Reposición</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 1,510</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Civil" data-servicio="Recurso de Apelación">
+                            <span class="text-sm md:text-base">Recurso de Apelación</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 4,040</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Civil" data-servicio="Recurso de Casación">
+                            <span class="text-sm md:text-base">Recurso de Casación</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 6,560</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Civil" data-servicio="Compulsa">
+                            <span class="text-sm md:text-base">Compulsa</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 3,030</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Civil" data-servicio="Ejecución de Sentencia">
+                            <span class="text-sm md:text-base">Ejecución de Sentencia</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 6,240</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Civil" data-servicio="Sumario Primera y Segunda Instancia">
+                            <span class="text-sm md:text-base">Sumario Primera y Segunda Instancia</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 4,990</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Civil" data-servicio="Recurso Extraordinario de Revisión de Sentencia">
+                            <span class="text-sm md:text-base">Recurso Extraordinario de Revisión de Sentencia</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 8,080</span>
                         </li>
                     </ul>
                 </div>
                 
-                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md">
+                <!-- Sección de Derecho Familiar -->
+                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md" id="tarifas-familiar">
                     <h3 class="text-base md:text-lg font-semibold mb-2 md:mb-3 text-blue-600 flex items-center">
-                        <i class="fas fa-balance-scale mr-2"></i> Derecho Civil
+                        <i class="fas fa-home mr-2"></i> Materia Familiar
                     </h3>
                     <ul class="space-y-1 md:space-y-2">
-                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100">
-                            <span class="text-sm md:text-base">Proceso Cautelar</span>
-                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 3,530</span>
-                        </li>
-                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100">
-                            <span class="text-sm md:text-base">Proceso Ordinario</span>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Familiar" data-servicio="Divorcio">
+                            <span class="text-sm md:text-base">Divorcio</span>
                             <span class="font-medium text-blue-500 text-sm md:text-base">Bs 6,560</span>
                         </li>
-                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100">
-                            <span class="text-sm md:text-base">Recurso de Apelación</span>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Familiar" data-servicio="Asistencia Familiar">
+                            <span class="text-sm md:text-base">Asistencia Familiar</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 1,510</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Familiar" data-servicio="Adopción Nacional">
+                            <span class="text-sm md:text-base">Adopción</span>
                             <span class="font-medium text-blue-500 text-sm md:text-base">Bs 4,040</span>
                         </li>
-                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100">
-                            <span class="text-sm md:text-base">Ejecución de Sentencia</span>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Familiar" data-servicio="Adopción Internacional">
+                            <span class="text-sm md:text-base">Adopción Internacional</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 9,590</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Familiar" data-servicio="Nulidad de Matrimonio o de Unión Libre">
+                            <span class="text-sm md:text-base">Nulidad de Matrimonio o de Unión Libre</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 6,560</span>
+                        </li>
+                         <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Familiar" data-servicio="División y Partición de Bienes Gananciales">
+                            <span class="text-sm md:text-base">División y Partición de Bienes Gananciales</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 4,040</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Familiar" data-servicio="Declaración Judicial de Filiación">
+                            <span class="text-sm md:text-base">Declaración Judicial de Filiación</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 7,570</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Familiar" data-servicio="Negación de Maternidad o Paternidad">
+                            <span class="text-sm md:text-base">Negación de Maternidad o Paternidad</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 7,570</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Familiar" data-servicio="Comprobación de Matrimonio o de Unión Libre">
+                            <span class="text-sm md:text-base">Comprobación de Matrimonio o de Unión Libre</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 6,560</span>
+                        </li>
+                         <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Familiar" data-servicio="Oposición al Matrimonio">
+                            <span class="text-sm md:text-base">Oposición al Matrimonio</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 1,510</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Familiar" data-servicio="Declaración de Interdicción">
+                            <span class="text-sm md:text-base">Declaración de Interdicción</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 6,060</span>
+                        </li>
+                         <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Familiar" data-servicio="Suspensión, Extinción o Restitución de la Autoridad">
+                            <span class="text-sm md:text-base">Suspensión, Extinción o Restitución de la Autoridad</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 8,580</span>
+                        </li>
+                         <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Familiar" data-servicio="Guarda">
+                            <span class="text-sm md:text-base">Guarda</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 5,650</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Sección de Derecho Penal -->
+                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md" id="tarifas-penal">
+                    <h3 class="text-base md:text-lg font-semibold mb-2 md:mb-3 text-blue-600 flex items-center">
+                        <i class="fas fa-gavel mr-2"></i> Materia Penal
+                    </h3>
+                    <ul class="space-y-1 md:space-y-2">
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Penal" data-servicio="Etapa Preliminar">
+                            <span class="text-sm md:text-base">Etapa Preliminar hasta la conclusión de la etapa</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 4,040</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Penal" data-servicio="Etapa Preparatoria del Juicio">
+                            <span class="text-sm md:text-base">Etapa Preparatoria del Juicio</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 5,050</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Penal" data-servicio="Juicio Oral y Público">
+                            <span class="text-sm md:text-base">Juicio Oral y Público</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 2,020</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Penal" data-servicio="Recurso de Reposición">
+                            <span class="text-sm md:text-base">Recurso de Reposición</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 2,520</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Penal" data-servicio="Recurso de Apelación Incidental">
+                            <span class="text-sm md:text-base">Recurso de Apelación Incidental</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 3,030</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Penal" data-servicio="Recurso de Apelación Restringida">
+                            <span class="text-sm md:text-base">Recurso de Apelación Restringida</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 4,540</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Penal" data-servicio="Recurso de Casación">
+                            <span class="text-sm md:text-base">Recurso de Casación</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 6,060</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Penal" data-servicio="Recurso de Revisión">
+                            <span class="text-sm md:text-base">Recurso de Revisión</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 8,580</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Penal" data-servicio="Procedimiento Abreviado">
+                            <span class="text-sm md:text-base">Procedimiento Abreviado</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 4,540</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Penal" data-servicio="Procedimientos por delitos de acción penal privada">
+                            <span class="text-sm md:text-base">Procedimientos por delitos de acción penal privada</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 3,530</span>
+                        </li>
+                         <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Penal" data-servicio="Procedimiento para la reparación del daño">
+                            <span class="text-sm md:text-base">Procedimiento para la reparación del daño</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 4,540</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Sección de Derecho Laboral -->
+                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md" id="tarifas-laboral">
+                    <h3 class="text-base md:text-lg font-semibold mb-2 md:mb-3 text-blue-600 flex items-center">
+                        <i class="fas fa-briefcase mr-2"></i> Materia del Trabajo y Seguridad Social
+                    </h3>
+                    <ul class="space-y-1 md:space-y-2">
+                         <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Laboral" data-servicio="Demanda por Beneficios Sociales">
+                            <span class="text-sm md:text-base">Demanda por Beneficios Sociales</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 4,040</span>
+                        </li>
+                         <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Laboral" data-servicio="Acciones Sociales Individuales o Colectivas">
+                            <span class="text-sm md:text-base">Acciones Sociales Individuales o Colectivas</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 2,520</span>
+                        </li>
+                         <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Laboral" data-servicio="Juicios Coactivos">
+                            <span class="text-sm md:text-base">Juicios Coactivos</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 4,040</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Laboral" data-servicio="Procedimiento por infracción de Ley Social">
+                            <span class="text-sm md:text-base">Procedimiento por infracción de Ley Social</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 1,510</span>
+                        </li>
+                         <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Laboral" data-servicio="Procedimiento por desafuero sindical">
+                            <span class="text-sm md:text-base">Procedimiento por desafuero sindical</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 4,540</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Laboral" data-servicio="Procedimiento sobre declaratoria de derechos">
+                            <span class="text-sm md:text-base">Procedimiento sobre declaratoria de derechos</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 2,020</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Laboral" data-servicio="Procedimientos en materia de seguridad social">
+                            <span class="text-sm md:text-base">Procedimientos en materia de seguridad social</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 1,010</span>
+                        </li>
+                         <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Laboral" data-servicio="Juicios Ejecutivos Sociales">
+                            <span class="text-sm md:text-base">Juicios Ejecutivos Sociales</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 6,240</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Laboral" data-servicio="Arbitraje Laboral">
+                            <span class="text-sm md:text-base">Arbitraje Laboral</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 4,370</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Laboral" data-servicio="Trámites conciliatorios ante el Ministerio de Trabajo">
+                            <span class="text-sm md:text-base">Trámites conciliatorios ante el Ministerio de Trabajo</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 4,370</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Laboral" data-servicio="Trámites relacionados a Seguridad Social">
+                            <span class="text-sm md:text-base">Trámites relacionados a Seguridad Social</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 3,740</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Laboral" data-servicio="Apelación">
+                            <span class="text-sm md:text-base">Apelación</span>
                             <span class="font-medium text-blue-500 text-sm md:text-base">Bs 6,240</span>
                         </li>
                     </ul>
                 </div>
                 
-                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md">
+                <!-- Sección de Derecho Comercial/Corporativo -->
+                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md" id="tarifas-corporativo">
                     <h3 class="text-base md:text-lg font-semibold mb-2 md:mb-3 text-blue-600 flex items-center">
-                        <i class="fas fa-home mr-2"></i> Derecho Familiar
+                        <i class="fas fa-chart-line mr-2"></i> Materia Comercial
                     </h3>
                     <ul class="space-y-1 md:space-y-2">
-                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100">
-                            <span class="text-sm md:text-base">Divorcio</span>
-                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 6,560</span>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Corporativo" data-servicio="Redacción de minutas de constitución">
+                            <span class="text-sm md:text-base">Redacción de minutas de constitución</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 5,100</span>
                         </li>
-                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100">
-                            <span class="text-sm md:text-base">Asistencia Familiar</span>
-                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 1,510</span>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Corporativo" data-servicio="Redacción de minutas de modificación">
+                            <span class="text-sm md:text-base">Redacción de minutas de modificación</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 3,400</span>
                         </li>
-                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100">
-                            <span class="text-sm md:text-base">Adopción Nacional</span>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Corporativo" data-servicio="Redacción de Estatuto">
+                            <span class="text-sm md:text-base">Redacción de Estatuto</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 5,100</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Corporativo" data-servicio="Redacción de reglamentos y Estatuto">
+                            <span class="text-sm md:text-base">Redacción de reglamentos y Estatuto</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 10,250</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Corporativo" data-servicio="Inscripción Registro de Comercio">
+                            <span class="text-sm md:text-base">Inscripción Registro de Comercio</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 2,380</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Corporativo" data-servicio="Organización y constitución de S.A.">
+                            <span class="text-sm md:text-base">Organización y constitución de S.A.</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 13,610</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Corporativo" data-servicio="Organización y constitución de otras sociedades comerciales">
+                            <span class="text-sm md:text-base">Organización y constitución de otras sociedades comerciales</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 10,210</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Corporativo" data-servicio="Redacción de contratos comerciales">
+                            <span class="text-sm md:text-base">Redacción de contratos comerciales</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 1,020</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Corporativo" data-servicio="Petición de patente de invención">
+                            <span class="text-sm md:text-base">Petición de patente de invención</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 5,100</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Corporativo" data-servicio="Registro de marca">
+                            <span class="text-sm md:text-base">Registro de marca</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 3,400</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Corporativo" data-servicio="Registro de propiedad intelectual de derechos de autor">
+                            <span class="text-sm md:text-base">Registro de propiedad intelectual de derechos de autor</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 1,700</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Corporativo" data-servicio="Proceso de oposición, nulidad fiscalización de registro de patentes, marcas y propiedad intelectual">
+                            <span class="text-sm md:text-base">Proceso de oposición, nulidad fiscalización de registro de patentes, marcas y propiedad intelectual</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 10,210</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Corporativo" data-servicio="Reconocimiento de personalidad jurídica de sociedades extranjeras">
+                            <span class="text-sm md:text-base">Reconocimiento de personalidad jurídica de sociedades extranjeras</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 10,210</span>
+                        </li>
+                         <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Corporativo" data-servicio="Trámites de formación de empresas unipersonales">
+                            <span class="text-sm md:text-base">Trámites de formación de empresas unipersonales</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 2,940</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Corporativo" data-servicio="Transferencia de rótulos comerciales y otros">
+                            <span class="text-sm md:text-base">Transferencia de rótulos comerciales y otros</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 4,420</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Corporativo" data-servicio="Concurso preventivo y quiebra">
+                            <span class="text-sm md:text-base">Concurso preventivo y quiebra</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 5,130</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Corporativo" data-servicio="Procesos de arbitraje">
+                            <span class="text-sm md:text-base">Procesos de arbitraje</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 4,420</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Corporativo" data-servicio="Gestión de negocios para empresas y sociedades extranjeras">
+                            <span class="text-sm md:text-base">Gestión de negocios para empresas y sociedades extranjeras</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 4,420</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Corporativo" data-servicio="Gestión de negocios para empresas y sociedades nacionales">
+                            <span class="text-sm md:text-base">Gestión de negocios para empresas y sociedades nacionales</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 2,940</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Corporativo" data-servicio="Asesoramiento en asamblea de sociedades o directorio">
+                            <span class="text-sm md:text-base">Asesoramiento en asamblea de sociedades o directorio</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 2,210</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Sección de Derecho Tributario -->
+                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md" id="tarifas-tributario">
+                    <h3 class="text-base md:text-lg font-semibold mb-2 md:mb-3 text-blue-600 flex items-center">
+                        <i class="fas fa-money-check-alt mr-2"></i> Materia Tributaria y Coactivo Fiscal
+                    </h3>
+                    <ul class="space-y-1 md:space-y-2">
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Tributario" data-servicio="Procedimientos Tributarios">
+                            <span class="text-sm md:text-base">Procedimientos Tributarios</span>
                             <span class="font-medium text-blue-500 text-sm md:text-base">Bs 4,040</span>
                         </li>
-                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100">
-                            <span class="text-sm md:text-base">Adopción Internacional</span>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Tributario" data-servicio="Recursos de impugnación en materia tributaria">
+                            <span class="text-sm md:text-base">Recursos de impugnación en materia tributaria</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 4,040</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Tributario" data-servicio="Proceso Coactivo Fiscal">
+                            <span class="text-sm md:text-base">Proceso Coactivo Fiscal</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 4,040</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Sección de Derecho Agroambiental -->
+                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md" id="tarifas-agroambiental">
+                    <h3 class="text-base md:text-lg font-semibold mb-2 md:mb-3 text-blue-600 flex items-center">
+                        <i class="fas fa-seedling mr-2"></i> Materia Agroambiental
+                    </h3>
+                    <ul class="space-y-1 md:space-y-2">
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Agroambiental" data-servicio="Trámites Administrativos">
+                            <span class="text-sm md:text-base">Trámites Administrativos</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 4,040</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Agroambiental" data-servicio="Procesos Judiciales">
+                            <span class="text-sm md:text-base">Procesos Judiciales</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 6,660</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Agroambiental" data-servicio="Procedimientos ante el Tribunal Agroambiental">
+                            <span class="text-sm md:text-base">Procedimientos ante el Tribunal Agroambiental</span>
                             <span class="font-medium text-blue-500 text-sm md:text-base">Bs 9,590</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                 <!-- Sección de Derecho Minero -->
+                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md" id="tarifas-minero">
+                    <h3 class="text-base md:text-lg font-semibold mb-2 md:mb-3 text-blue-600 flex items-center">
+                        <i class="fas fa-gem mr-2"></i> Materia Minera
+                    </h3>
+                    <ul class="space-y-1 md:space-y-2">
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Minera" data-servicio="Derechos Mineros y Extinción">
+                            <span class="text-sm md:text-base">Derechos Mineros y Extinción</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 5,090</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Minera" data-servicio="Contratos Mineros y Licencias de Prospección y Exploración">
+                            <span class="text-sm md:text-base">Contratos Mineros y Licencias de Prospección y Exploración</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 5,050</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Minera" data-servicio="Régimen de Adecuaciones">
+                            <span class="text-sm md:text-base">Régimen de Adecuaciones</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 5,090</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Minera" data-servicio="Trámites ante instancias administrativas mineras">
+                            <span class="text-sm md:text-base">Trámites ante instancias administrativas mineras</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 4,040</span>
+                        </li>
+                    </ul>
+                </div>
+                 
+                 <!-- Sección de Derecho Administrativo -->
+                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md" id="tarifas-administrativo">
+                    <h3 class="text-base md:text-lg font-semibold mb-2 md:mb-3 text-blue-600 flex items-center">
+                        <i class="fas fa-file-invoice mr-2"></i> Materia Administrativa
+                    </h3>
+                    <ul class="space-y-1 md:space-y-2">
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Administrativo" data-servicio="Procedimientos administrativos ante entidades">
+                            <span class="text-sm md:text-base">Procedimientos administrativos ante entidades</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 3,500</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Administrativo" data-servicio="Recursos administrativos (revocatorio o jerárquico)">
+                            <span class="text-sm md:text-base">Recursos administrativos (revocatorio o jerárquico)</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 2,020</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="Administrativo" data-servicio="Proceso Contencioso Administrativo">
+                            <span class="text-sm md:text-base">Proceso Contencioso Administrativo</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 6,560</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Sección de Trámites en General -->
+                <div class="service-card bg-white p-4 md:p-6 rounded-lg shadow-md" id="tarifas-general">
+                    <h3 class="text-base md:text-lg font-semibold mb-2 md:mb-3 text-blue-600 flex items-center">
+                        <i class="fas fa-tasks mr-2"></i> Trámites en General
+                    </h3>
+                    <ul class="space-y-1 md:space-y-2">
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="General" data-servicio="Consultas Profesionales">
+                            <span class="text-sm md:text-base">Consultas Profesionales</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 200</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="General" data-servicio="Redacción de normativa (leyes, reglamentos, estatutos y otros)">
+                            <span class="text-sm md:text-base">Redacción de normativa (leyes, reglamentos, estatutos y otros)</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 5,050</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="General" data-servicio="Asesoría General">
+                            <span class="text-sm md:text-base">Asesoría General</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 3,030</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="General" data-servicio="Asesoría Especializada">
+                            <span class="text-sm md:text-base">Asesoría Especializada</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 5,550</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="General" data-servicio="Audiencias">
+                            <span class="text-sm md:text-base">Audiencias</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 350</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="General" data-servicio="Conciliación en sede administrativa">
+                            <span class="text-sm md:text-base">Conciliación en sede administrativa</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 500</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="General" data-servicio="Conciliación en sede judicial">
+                            <span class="text-sm md:text-base">Conciliación en sede judicial</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 1,510</span>
+                        </li>
+                        <li class="bg-blue-50 p-2 md:p-3 rounded shadow-sm flex justify-between hover:bg-blue-100 whatsapp-link" data-materia="General" data-servicio="Arbitraje">
+                            <span class="text-sm md:text-base">Arbitraje</span>
+                            <span class="font-medium text-blue-500 text-sm md:text-base">Bs 1,510</span>
                         </li>
                     </ul>
                 </div>
@@ -469,7 +924,17 @@
             </div>
         </section>
 
-        <!-- Contacto -->
+        <!-- Sección de "Próximamente" para otros rubros -->
+        <section id="proximamente" class="tab-content animate-fadeIn">
+            <h2 class="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-blue-700">Otros Rubros de Yasi K'ari SRL</h2>
+            <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">¡Próximamente!</h3>
+                <p class="text-base text-gray-600">Estamos trabajando arduamente en el desarrollo de nuestras divisiones de Actividades Comerciales y Proyectos Especiales.</p>
+                <p class="text-base text-gray-600 mt-2">Visita nuestro sitio web legal para conocer más sobre nuestra firma.</p>
+            </div>
+        </section>
+
+        <!-- Contacto: Detalles de la firma y ubicación -->
         <section id="contacto" class="tab-content animate-fadeIn">
             <h2 class="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-blue-700">Información de Contacto</h2>
             
@@ -515,7 +980,13 @@
                                     <a href="mailto:lexusyasi@gmail.com" class="text-blue-500 hover:underline ml-1">lexusyasi@gmail.com</a>
                                 </div>
                             </li>
-                            <!-- Se eliminó la línea de "Sitio Web: Visitar" -->
+                            <li class="flex">
+                                <i class="fas fa-globe mr-2 md:mr-3 text-blue-500 mt-1"></i>
+                                <div class="text-sm md:text-base">
+                                    <strong>Sitio Web:</strong> 
+                                    <a href="https://sites.google.com/view/yasikari/p%C3%A1gina-principal" target="_blank" class="text-blue-500 hover:underline ml-1">Visitar</a>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                     
@@ -537,33 +1008,43 @@
 
                 <div>
                     <div class="bg-white p-4 md:p-6 rounded-lg shadow-md mb-4 md:mb-6">
-                        <h3 class="text-base md:text-lg font-semibold mb-2 md:mb-3 text-blue-600">Direcciones</h3>
+                        <h3 class="text-base md:text-lg font-semibold mb-2 md:mb-3 text-blue-600">Dirección</h3>
                         
+                        <!-- Mapa para la primera ubicación -->
                         <div class="mb-4 md:mb-6">
                             <h4 class="font-medium text-blue-700 mb-1 md:mb-2 flex items-center">
-                                <i class="fas fa-map-marker-alt mr-2 text-red-500"></i> Oficina Principal
+                                <i class="fas fa-map-marker-alt mr-2 text-red-500"></i> Ubicación 1
                             </h4>
-                            <p class="text-xs md:text-sm text-gray-600 mb-2 md:mb-3">Calle Sucre esq. Av. José Ballivián, Trinidad - Beni</p>
                             <div class="map-container w-full overflow-hidden rounded shadow">
-                                <!-- Reemplazado iframe con imagen clicable a Google Maps -->
-                                <a href="https://maps.app.goo.gl/1hCZ6PmkUJDPSQ4W9" target="_blank" title="Ver en Google Maps">
-                                    <img src="https://placehold.co/400x200/cccccc/333333?text=Haz+clic+para+ver+mapa" alt="Mapa de Oficina Principal">
-                                </a>
-                                <p class="text-xs text-gray-500 mt-2 text-center">Haz clic en la imagen para ver el mapa</p>
+                                <iframe 
+                                    src="https://maps.google.com/maps?q=https://maps.app.goo.gl/1hCZ6PmkUJDPSQ4W9&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                                    width="100%"
+                                    height="100%"
+                                    style="border:0"
+                                    allowfullscreen=""
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"
+                                    title="Mapa Ubicación 1"
+                                ></iframe>
                             </div>
                         </div>
-                        
-                        <div>
+
+                        <!-- Mapa para la segunda ubicación -->
+                        <div class="mb-4 md:mb-6">
                             <h4 class="font-medium text-blue-700 mb-1 md:mb-2 flex items-center">
-                                <i class="fas fa-map-marker-alt mr-2 text-red-500"></i> Oficina Adicional
+                                <i class="fas fa-map-marker-alt mr-2 text-red-500"></i> Ubicación 2
                             </h4>
-                            <p class="text-xs md:text-sm text-gray-600 mb-2 md:mb-3">Av. Mamoré #234, Trinidad - Beni</p>
                             <div class="map-container w-full overflow-hidden rounded shadow">
-                                <!-- Reemplazado iframe con imagen clicable a Google Maps -->
-                                <a href="https://maps.app.goo.gl/ddgNoHjVcCXBpFbA8" target="_blank" title="Ver en Google Maps">
-                                    <img src="https://placehold.co/400x200/cccccc/333333?text=Haz+clic+para+ver+mapa" alt="Mapa de Oficina Adicional">
-                                </a>
-                                <p class="text-xs text-gray-500 mt-2 text-center">Haz clic en la imagen para ver el mapa</p>
+                                <iframe 
+                                    src="https://maps.google.com/maps?q=https://maps.app.goo.gl/ddgNoHjVcCXBpFbA8&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                                    width="100%"
+                                    height="100%"
+                                    style="border:0"
+                                    allowfullscreen=""
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"
+                                    title="Mapa Ubicación 2"
+                                ></iframe>
                             </div>
                         </div>
                     </div>
@@ -589,7 +1070,7 @@
                             </li>
                         </ul>
                         
-                        <!-- Atención Online 24/7 - Ahora redirige a WhatsApp -->
+                        <!-- Badge para atención en línea que redirige a WhatsApp -->
                         <a href="https://api.whatsapp.com/send?phone=59167358769" target="_blank" class="block">
                             <div class="online-badge mt-3 p-3 bg-gradient-to-r from-green-500 to-teal-500 rounded-lg pulse">
                                 <p class="text-white font-bold text-center text-sm md:text-base">
@@ -605,11 +1086,10 @@
         </section>
     </main>
 
-    <!-- Footer -->
+    <!-- Footer con información de la firma y redes sociales -->
     <footer class="bg-blue-600 text-white py-4 md:py-6">
         <div class="container mx-auto px-4 text-center">
-            <p class="text-sm md:text-base">&copy; <span id="current-year"></span> Yasi K'ari SRL - Todos los derechos reservados.</p>
-            <p class="mt-1 md:mt-2 text-xs md:text-sm">Desarrollado por el equipo de Yasi K'ari SRL</p>
+            <p class="text-sm md:text-base">© <span id="current-year"></span> Yasi K'ari SRL - Todos los derechos reservados.</p>
             <div class="mt-3 md:mt-4 flex justify-center space-x-3 md:space-x-4">
                 <a href="https://www.facebook.com/profile.php?id=61571776760855&mibextid=ZbWKwL" target="_blank" class="text-white hover:text-yellow-200">
                     <i class="fab fa-facebook text-sm md:text-base"></i>
@@ -627,32 +1107,27 @@
         </div>
     </footer>
 
+    <!-- Script JavaScript para la funcionalidad de las pestañas y el año actual -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Tab switching functionality
             const tabButtons = document.querySelectorAll('.nav-link');
             const tabContents = document.querySelectorAll('.tab-content');
             
-            // Function to switch tabs
             function switchTab(tabId) {
-                // Hide all tab contents
                 tabContents.forEach(content => {
                     content.classList.remove('active');
                 });
                 
-                // Show selected tab content
                 const activeTab = document.getElementById(tabId);
                 if (activeTab) {
                     activeTab.classList.add('active');
                     activeTab.classList.add('animate-fadeIn');
                     
-                    // Remove animation class after animation completes
                     setTimeout(() => {
                         activeTab.classList.remove('animate-fadeIn');
                     }, 600);
                 }
                 
-                // Update active tab button
                 tabButtons.forEach(button => {
                     button.classList.remove('active');
                     if (button.getAttribute('data-tab') === tabId) {
@@ -660,11 +1135,43 @@
                     }
                 });
                 
-                // Close mobile menu if open
-                document.querySelector('.mobile-menu-items').classList.remove('active');
+                const mobileMenu = document.querySelector('.mobile-menu-items');
+                if (mobileMenu) {
+                    mobileMenu.classList.remove('active');
+                }
             }
-            
-            // Add click event to all tab buttons
+
+            // Manejar los clics en los enlaces de servicio
+            document.querySelectorAll('.service-link').forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const tabId = this.getAttribute('data-tab');
+                    const temaId = this.getAttribute('data-tema');
+                    switchTab(tabId);
+                    
+                    // Desplazarse a la sección de tarifas del tema específico
+                    setTimeout(() => {
+                        const targetElement = document.getElementById(`tarifas-${temaId}`);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }, 650); // Pequeño retraso para dar tiempo a que la animación de la pestaña termine
+                });
+            });
+
+            // Manejar los clics en los enlaces de precio para WhatsApp
+            document.querySelectorAll('.whatsapp-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    const materia = this.getAttribute('data-materia');
+                    const servicio = this.getAttribute('data-servicio');
+                    const mensaje = `Hola, me gustaría recibir más información sobre el servicio de *${servicio}* en la materia de *${materia}*.`;
+                    const encodedMensaje = encodeURIComponent(mensaje);
+                    const whatsappUrl = `https://api.whatsapp.com/send?phone=59167358769&text=${encodedMensaje}`;
+                    window.open(whatsappUrl, '_blank');
+                });
+            });
+
+            // Agrega click event a todos los botones de las pestañas
             tabButtons.forEach(button => {
                 button.addEventListener('click', function() {
                     const tabId = this.getAttribute('data-tab');
@@ -672,21 +1179,21 @@
                 });
             });
             
-            // Set current year in footer
+            // Establece el año actual en el footer
             document.getElementById('current-year').textContent = new Date().getFullYear();
             
-            // WhatsApp redirection function
+            // Función para redirigir a WhatsApp
             function redirectToWhatsApp() {
                 window.open('https://api.whatsapp.com/send?phone=59167358769', '_blank');
             }
             
-            // Add click event to online badge
+            // Agrega el evento de clic al badge de atención en línea
             const onlineBadge = document.querySelector('.online-badge');
             if (onlineBadge) {
                 onlineBadge.addEventListener('click', redirectToWhatsApp);
             }
             
-            // Mobile menu toggle
+            // Alterna el menú móvil
             const menuToggle = document.querySelector('.mobile-menu-btn');
             if (menuToggle) {
                 menuToggle.addEventListener('click', function() {
@@ -695,7 +1202,7 @@
                 });
             }
             
-            // Initialize with first tab active
+            // Inicializa la página en la pestaña de inicio
             switchTab('inicio');
         });
     </script>
